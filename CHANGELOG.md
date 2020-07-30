@@ -5,7 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [3.6.5](https://github.com/prismicio/gatsby-source-prismic-graphql/compare/v3.6.3...v3.6.5) (2020-06-26)
 
-**Note:** Version bump only for package root
+**Note:** Version bump only for package @prismicio/gatsby-source-prismic-graphql
 
 ## [3.6.3](https://github.com/prismicio/gatsby-source-prismic-graphql/compare/v3.6.2...v3.6.3) (2020-06-26)
 
@@ -14,33 +14,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - preview not working ([#193](https://github.com/prismicio/gatsby-source-prismic-graphql/issues/193)) ([3cb8d19](https://github.com/prismicio/gatsby-source-prismic-graphql/commit/3cb8d19536faaf100c5175852fbd566af145b0f3)), closes [#143](https://github.com/prismicio/gatsby-source-prismic-graphql/issues/143) [#154](https://github.com/prismicio/gatsby-source-prismic-graphql/issues/154)
 - stripSharp behavior during preview mode ([#127](https://github.com/prismicio/gatsby-source-prismic-graphql/issues/127)) ([9ba1175](https://github.com/prismicio/gatsby-source-prismic-graphql/commit/9ba117553ac03c056b201187c708b214791a5068))
 
-### Features
-
-- attp 3 ([57f97e2](https://github.com/prismicio/gatsby-source-prismic-graphql/commit/57f97e262ff695ccd7f751570862d774d55f9360))
-
 ## [3.6.2](https://github.com/birkir/gatsby-source-prismic-graphql/compare/v3.6.1...v3.6.2) (2020-04-28)
 
-**Note:** Version bump only for package root
+**Note:** Version bump only for package gatsby-source-prismic-graphql
 
 ## [3.6.1](https://github.com/birkir/gatsby-source-prismic-graphql/compare/v3.6.0...v3.6.1) (2020-04-28)
 
-### Features
-
-- attp 2 ([4f42ec9](https://github.com/birkir/gatsby-source-prismic-graphql/commit/4f42ec991cfb3fc5c8e172b2ad2f64786433d1fc))
-- attp 3 ([9bb118f](https://github.com/birkir/gatsby-source-prismic-graphql/commit/9bb118f9a84eb8f40b12a5a12619f8382c870884))
-- no canary on releases ([5a64d7a](https://github.com/birkir/gatsby-source-prismic-graphql/commit/5a64d7a1f521096a027d445b3c1cc9af68ba6966))
+**Note:** Version bump only for package gatsby-source-prismic-graphql
 
 # [3.6.0](https://github.com/birkir/gatsby-source-prismic-graphql/compare/v3.4.0...v3.6.0) (2020-04-28)
 
 ### Bug Fixes
 
-- fix useStaticQuery hook [#77](https://github.com/birkir/gatsby-source-prismic-graphql/issues/77) ([ba15d2b](https://github.com/birkir/gatsby-source-prismic-graphql/commit/ba15d2bf50d63593449c48f54a8c0009c6510e45))
 - bump dep version to fix ERROR [#11321](https://github.com/birkir/gatsby-source-prismic-graphql/issues/11321) ([9500260](https://github.com/birkir/gatsby-source-prismic-graphql/commit/9500260c0cc81600e1b013b7e115275293ed0e89))
-- change travis build to deploy stable version ([46854b8](https://github.com/birkir/gatsby-source-prismic-graphql/commit/46854b8af8b2fe90e8f944060be792eb75042448))
 - fix post review ([9ecc671](https://github.com/birkir/gatsby-source-prismic-graphql/commit/9ecc6711116c05b4002c859ac77beeebe2164e73))
 - fixing type & updating path-to-regexp to use new match function ([eff64d8](https://github.com/birkir/gatsby-source-prismic-graphql/commit/eff64d824438690b7c73ced8f923b5c2f661412d))
 - handle pages with unicode characters ([fa698d5](https://github.com/birkir/gatsby-source-prismic-graphql/commit/fa698d56de2b539f237b18debad6752a92a3524c))
 - multi-lang previews ([e4baba7](https://github.com/birkir/gatsby-source-prismic-graphql/commit/e4baba7bc2c5295bdbb9d20f083891dd127165b1))
+- rollback code to older typescript version ([3cbb1f1](https://github.com/birkir/gatsby-source-prismic-graphql/commit/3cbb1f1d62c7fa97ca44d69e1d205423be50d118))
 - sanitize accessToken option ([6cb96bf](https://github.com/birkir/gatsby-source-prismic-graphql/commit/6cb96bf37f6b258ebda817c06c6a5ab0c3dbc178))
 - test if page exists to display preview real url ([8705eb9](https://github.com/birkir/gatsby-source-prismic-graphql/commit/8705eb99352fda6aab41a684a25d9f16ef86e836))
 - unescape createRemoteFileNode url ([018efe2](https://github.com/birkir/gatsby-source-prismic-graphql/commit/018efe287d25c1750cfb1e69564a3ca670e693b1))
@@ -51,9 +42,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - additional query size optimization ([8fcec72](https://github.com/birkir/gatsby-source-prismic-graphql/commit/8fcec72add1b3d4606ec8be27e51cce4a8f81156))
 - extraPageFields option for better filtering ([66ac7ba](https://github.com/birkir/gatsby-source-prismic-graphql/commit/66ac7baa8309eb6a97633aa38a2d44f923ffc2c5))
-- master should publish canary only ([6dde227](https://github.com/birkir/gatsby-source-prismic-graphql/commit/6dde2270c343d4cf35cb5e7a69b494c25abf3ed7))
 - optimize query size ([57e2940](https://github.com/birkir/gatsby-source-prismic-graphql/commit/57e2940342f724ef21bc951b987a409fbc2d9d82))
-- run tagged releases ([02e38e7](https://github.com/birkir/gatsby-source-prismic-graphql/commit/02e38e7e77a7a2307928a1bb1512a7d428261428))
 
 # [3.4.0](https://github.com/birkir/gatsby-source-prismic-graphql/compare/v3.4.0-beta.2...v3.4.0) (2020-01-27)
 
@@ -81,8 +70,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - improve pagination context var names; pass context for previews ([166321c](https://github.com/birkir/gatsby-source-prismic-graphql/commit/166321c))
-- languages example ([84f9253](https://github.com/birkir/gatsby-source-prismic-graphql/commit/84f9253))
-- logic problems with dynamic pagination already in example ([eb0fa26](https://github.com/birkir/gatsby-source-prismic-graphql/commit/eb0fa26))
 - multi-locale path-generation logic, enhanced typing ([bbe2aa5](https://github.com/birkir/gatsby-source-prismic-graphql/commit/bbe2aa5))
 - multi-locale support compatible with pagination ([bffeea2](https://github.com/birkir/gatsby-source-prismic-graphql/commit/bffeea2))
 - sortBy works for all document types ([d861c9d](https://github.com/birkir/gatsby-source-prismic-graphql/commit/d861c9d))
@@ -117,25 +104,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - add apollo-boost dependency ([c4334c8](https://github.com/birkir/gatsby-source-prismic-graphql/commit/c4334c8))
-- auto yes ([cc26e91](https://github.com/birkir/gatsby-source-prismic-graphql/commit/cc26e91))
-- circleci ([fe9df4a](https://github.com/birkir/gatsby-source-prismic-graphql/commit/fe9df4a))
-- circleci ([fb36a78](https://github.com/birkir/gatsby-source-prismic-graphql/commit/fb36a78))
-- default files ([be2afec](https://github.com/birkir/gatsby-source-prismic-graphql/commit/be2afec))
 - dependency and load variables ([e826e5f](https://github.com/birkir/gatsby-source-prismic-graphql/commit/e826e5f))
 - ensure location is in props ([82eb8f0](https://github.com/birkir/gatsby-source-prismic-graphql/commit/82eb8f0))
-- example package name ([50ab749](https://github.com/birkir/gatsby-source-prismic-graphql/commit/50ab749))
-- force publish ([d792bc9](https://github.com/birkir/gatsby-source-prismic-graphql/commit/d792bc9))
-- git changes ([343dd00](https://github.com/birkir/gatsby-source-prismic-graphql/commit/343dd00))
-- git config ([7b4a68c](https://github.com/birkir/gatsby-source-prismic-graphql/commit/7b4a68c))
-- lerna bootstrap ([2a1a256](https://github.com/birkir/gatsby-source-prismic-graphql/commit/2a1a256))
-- lerna publish ([7fec548](https://github.com/birkir/gatsby-source-prismic-graphql/commit/7fec548))
-- meh ([569fea5](https://github.com/birkir/gatsby-source-prismic-graphql/commit/569fea5))
-- npm login ([da0286c](https://github.com/birkir/gatsby-source-prismic-graphql/commit/da0286c))
-- prettier ([fbc4395](https://github.com/birkir/gatsby-source-prismic-graphql/commit/fbc4395))
 - prettier ([68ce94c](https://github.com/birkir/gatsby-source-prismic-graphql/commit/68ce94c))
+- prettier ([fbc4395](https://github.com/birkir/gatsby-source-prismic-graphql/commit/fbc4395))
 - preview page with no pages option ([d271ca0](https://github.com/birkir/gatsby-source-prismic-graphql/commit/d271ca0))
 - ssr strip whitespace fetch ([3f843c2](https://github.com/birkir/gatsby-source-prismic-graphql/commit/3f843c2))
-- template title ([9b35c68](https://github.com/birkir/gatsby-source-prismic-graphql/commit/9b35c68))
 - test deploy ([11bb7b5](https://github.com/birkir/gatsby-source-prismic-graphql/commit/11bb7b5))
 - update graphql source plugin ([3b9bab0](https://github.com/birkir/gatsby-source-prismic-graphql/commit/3b9bab0))
 
@@ -148,7 +122,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 3.0.0-alpha.0 (2019-03-19)
 
-### Bug Fixes
-
-- pageContext as variables by default ([0cd8d57](https://github.com/birkir/gatsby-source-prismic-graphql/commit/0cd8d57))
-- remove multiple graphql packages ([ecd1a09](https://github.com/birkir/gatsby-source-prismic-graphql/commit/ecd1a09))
+Initial pre-release
