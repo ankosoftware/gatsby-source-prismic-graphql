@@ -224,8 +224,8 @@ exports.createPages = async ({ graphql, actions: { createPage } }: any, options:
     documents: Edge[] = []
   ): Promise<Edge[]> {
     // Format page.type so that the graphql query doesn't complain.
-    const pageTypeUnderscored = page.type.toLowerCase().split(' ').join('_');
-    const pageTypeFormatted = pageTypeUnderscored.charAt(0).toUpperCase() + pageTypeUnderscored.slice(1);
+    const pageTypeUnderscored = page.type//.toLowerCase().split(' ').join('_');
+    const pageTypeFormatted = pageTypeUnderscored//.charAt(0).toUpperCase() + pageTypeUnderscored.slice(1);
     // Prepare and execute query
     const documentType: string = `all${pageTypeFormatted}s`;
     const sortType: string = `PRISMIC_Sort${pageTypeFormatted}y`;
@@ -281,7 +281,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }: any, options:
 
   // Run all pageCreators simultaneously
   const allPaths = flatten(await Promise.all(pageCreators));
-  
+
   if(options.previews) {
     createGeneralPreviewPage(createPage, allPaths, options);
   }
