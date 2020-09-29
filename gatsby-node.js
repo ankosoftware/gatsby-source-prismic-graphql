@@ -261,7 +261,7 @@ function () {
                         // Prepare and execute query
 
                         documentType = "all".concat(pageTypeFormatted, "s");
-                        sortType = "PRISMIC_Sort" + pageTypeFormatted;
+                        sortType = "PRISMIC_Sort" + pageTypeFormatted + "y";
                         extraPageFields = options.extraPageFields || '';
                         query = getDocumentsQuery({
                           documentType: documentType,
