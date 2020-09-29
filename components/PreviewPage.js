@@ -17,13 +17,13 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
 var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
@@ -37,16 +37,14 @@ var _utils = require("../utils");
 
 var _parseQueryString = require("../utils/parseQueryString");
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var PreviewPage = /*#__PURE__*/function (_React$Component) {
+var PreviewPage =
+/*#__PURE__*/
+function (_React$Component) {
   (0, _inherits2.default)(PreviewPage, _React$Component);
 
-  var _super = _createSuper(PreviewPage);
-
   function PreviewPage() {
+    var _getPrototypeOf2;
+
     var _this;
 
     (0, _classCallCheck2.default)(this, PreviewPage);
@@ -55,9 +53,13 @@ var PreviewPage = /*#__PURE__*/function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    _this = _super.call.apply(_super, [this].concat(args));
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "redirect", /*#__PURE__*/function () {
-      var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(doc) {
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(PreviewPage)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "redirect",
+    /*#__PURE__*/
+    function () {
+      var _ref = (0, _asyncToGenerator2.default)(
+      /*#__PURE__*/
+      _regenerator.default.mark(function _callee(doc) {
         var link, pathWithQS, pageExists, newUrl;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
@@ -124,7 +126,9 @@ var PreviewPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "preview",
     value: function () {
-      var _preview = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+      var _preview = (0, _asyncToGenerator2.default)(
+      /*#__PURE__*/
+      _regenerator.default.mark(function _callee2() {
         var location, qs, token, experiment, documentId, now, api, doc, runningVariations, matchedVariation, cookies, _doc, _preview2;
 
         return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -151,7 +155,7 @@ var PreviewPage = /*#__PURE__*/function (_React$Component) {
                 }
 
                 _context2.next = 13;
-                return api.getPreviewResolver(token, documentId).resolve(_utils.linkResolver, '/');
+                return api.previewSession(token, _utils.linkResolver, '/');
 
               case 13:
                 document.cookie = "".concat(_prismicJavascript.default.previewCookie, "=").concat(token, "; expires=").concat(now.toUTCString(), "; path=/");

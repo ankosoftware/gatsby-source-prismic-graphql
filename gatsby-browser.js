@@ -32,7 +32,7 @@ var wrapPageElement = function wrapPageElement(_ref, options) {
       props = _ref.props;
 
   if (props.pageContext.rootQuery || props.pageContext.prismicPreviewPage) {
-    return /*#__PURE__*/_react.default.createElement(_WrapPage.WrapPage, (0, _extends2.default)({
+    return _react.default.createElement(_WrapPage.WrapPage, (0, _extends2.default)({
       key: props.location.key,
       options: options
     }, props), element);
