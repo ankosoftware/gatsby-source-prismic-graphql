@@ -21,12 +21,8 @@ var _index = require("./index");
 
 var client = undefined;
 
-var getApolloClient =
-/*#__PURE__*/
-function () {
-  var _ref2 = (0, _asyncToGenerator2.default)(
-  /*#__PURE__*/
-  _regenerator.default.mark(function _callee(_ref) {
+var getApolloClient = /*#__PURE__*/function () {
+  var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {
     var repositoryName, introspectionQueryResultData, fragmentMatcher;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {

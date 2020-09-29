@@ -10,6 +10,8 @@ var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
 var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));
 
 var _path = _interopRequireDefault(require("path"));
@@ -74,7 +76,16 @@ exports.sourceNodes = function (ref, options) {
       });
     }
   }, options);
-  return (0, _gatsbyNode.sourceNodes)(ref, opts);
+  return (0, _gatsbyNode.sourceNodes)((0, _objectSpread2.default)({}, ref, {
+    actions: (0, _objectSpread2.default)({}, ref.actions, {
+      createNode: function createNode(node) {
+        var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+        return ref.actions.createNode(node, (0, _objectSpread2.default)({}, opts, {
+          name: '@prismic/gatsby-source-prismic-graphql'
+        }));
+      }
+    })
+  }), opts);
 };
 
 function createGeneralPreviewPage(createPage, allPaths, options) {
@@ -122,6 +133,11 @@ function createDocumentPreviewPage(createPage, options, page) {
 function createDocumentPath(pageOptions, node, _ref2) {
   var defaultLang = _ref2.defaultLang,
       shortenUrlLangs = _ref2.shortenUrlLangs;
+
+  if (pageOptions.customPath) {
+    return pageOptions.customPath(node);
+  }
+
   var pathKeys = [];
   var pathTemplate = pageOptions.match;
   (0, _pathToRegexp.pathToRegexp)(pathTemplate, pathKeys);
@@ -151,14 +167,16 @@ function createDocumentPages(createPage, edges, options, page) {
     var previousNode = edges[index - 1] && edges[index - 1].node;
     var nextNode = edges[index + 1] && edges[index + 1].node;
     var path = createDocumentPath(page, node, options);
-    paths.push(path); // ...and create the page
+    paths.push(path);
+    var _meta = node._meta,
+        extraPageFields = (0, _objectWithoutProperties2.default)(node, ["_meta"]); // ...and create the page
 
     createPage({
       path: path,
       component: page.component,
       context: (0, _objectSpread2.default)({
         rootQuery: (0, _getRootQuery.getRootQuery)(page.component)
-      }, node._meta, {
+      }, extraPageFields, _meta, {
         cursor: cursor,
         paginationPreviousMeta: previousNode ? previousNode._meta : null,
         paginationPreviousUid: previousNode ? previousNode._meta.uid : '',
@@ -178,25 +196,19 @@ var getDocumentsQuery = function getDocumentsQuery(_ref4) {
   var documentType = _ref4.documentType,
       sortType = _ref4.sortType,
       extraPageFields = _ref4.extraPageFields;
-  return "\n  query AllPagesQuery ($after: String, $lang: String, $sortBy: ".concat(sortType, ") {\n    prismic {\n      ").concat(documentType, " (\n        first: 20\n        after: $after\n        sortBy: $sortBy\n        lang: $lang\n      ) {\n        totalCount\n        pageInfo {\n          hasNextPage\n          endCursor\n        }\n        edges {\n          cursor\n          node {\n            ").concat(extraPageFields, "\n            _meta {\n              id\n              lang\n              uid\n              type\n              alternateLanguages {\n                id\n                lang\n                type\n                uid\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n");
+  return "\n  query AllPagesQuery ($after: String, $lang: String, $sortBy: ".concat(sortType, ") {\n    prismic {\n      ").concat(documentType, " (\n        first: 20\n        after: $after\n        sortBy: $sortBy\n        lang: $lang\n      ) {\n        totalCount\n        pageInfo {\n          hasNextPage\n          endCursor\n        }\n        edges {\n          cursor\n          node {\n            ").concat(typeof extraPageFields === 'string' ? extraPageFields : extraPageFields.join("\n"), "\n            _meta {\n              id\n              lang\n              uid\n              type\n              alternateLanguages {\n                id\n                lang\n                type\n                uid\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n");
 };
 
-exports.createPages =
-/*#__PURE__*/
-function () {
-  var _ref6 = (0, _asyncToGenerator2.default)(
-  /*#__PURE__*/
-  _regenerator.default.mark(function _callee3(_ref5, options) {
+exports.createPages = /*#__PURE__*/function () {
+  var _ref6 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(_ref5, options) {
     var graphql, createPage, getPrismicEdges, _getPrismicEdges, createPagesForType, _createPagesForType, pages, pageCreators, allPaths;
 
     return _regenerator.default.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _createPagesForType = function _ref11() {
-              _createPagesForType = (0, _asyncToGenerator2.default)(
-              /*#__PURE__*/
-              _regenerator.default.mark(function _callee2(page, lang) {
+            _createPagesForType = function _createPagesForType3() {
+              _createPagesForType = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(page, lang) {
                 var edges;
                 return _regenerator.default.wrap(function _callee2$(_context2) {
                   while (1) {
@@ -224,14 +236,12 @@ function () {
               return _createPagesForType.apply(this, arguments);
             };
 
-            createPagesForType = function _ref10(_x5, _x6) {
+            createPagesForType = function _createPagesForType2(_x5, _x6) {
               return _createPagesForType.apply(this, arguments);
             };
 
-            _getPrismicEdges = function _ref9() {
-              _getPrismicEdges = (0, _asyncToGenerator2.default)(
-              /*#__PURE__*/
-              _regenerator.default.mark(function _callee(page, lang) {
+            _getPrismicEdges = function _getPrismicEdges3() {
+              _getPrismicEdges = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(page, lang) {
                 var endCursor,
                     documents,
                     pageTypeUnderscored,
@@ -240,7 +250,7 @@ function () {
                     sortType,
                     extraPageFields,
                     query,
-                    _ref7,
+                    _yield$graphql,
                     data,
                     errors,
                     response,
@@ -255,14 +265,12 @@ function () {
                         endCursor = _args.length > 2 && _args[2] !== undefined ? _args[2] : '';
                         documents = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
                         // Format page.type so that the graphql query doesn't complain.
-                        pageTypeUnderscored = page.type; //.toLowerCase().split(' ').join('_');
-
-                        pageTypeFormatted = pageTypeUnderscored; //.charAt(0).toUpperCase() + pageTypeUnderscored.slice(1);
-                        // Prepare and execute query
+                        pageTypeUnderscored = page.type;//.split(' ').join('_');
+                        pageTypeFormatted = pageTypeUnderscored;//.charAt(0).toUpperCase() + pageTypeUnderscored.slice(1); // Prepare and execute query
 
                         documentType = "all".concat(pageTypeFormatted, "s");
-                        sortType = "PRISMIC_Sort" + pageTypeFormatted + "y";
-                        extraPageFields = options.extraPageFields || '';
+                        sortType = "PRISMIC_Sort".concat(pageTypeFormatted, "y");
+                        extraPageFields = page.extraPageFields || options.extraPageFields || '';
                         query = getDocumentsQuery({
                           documentType: documentType,
                           sortType: sortType,
@@ -276,9 +284,9 @@ function () {
                         });
 
                       case 10:
-                        _ref7 = _context.sent;
-                        data = _ref7.data;
-                        errors = _ref7.errors;
+                        _yield$graphql = _context.sent;
+                        data = _yield$graphql.data;
+                        errors = _yield$graphql.errors;
 
                         if (!(errors && errors.length)) {
                           _context.next = 15;
@@ -322,7 +330,7 @@ function () {
               return _getPrismicEdges.apply(this, arguments);
             };
 
-            getPrismicEdges = function _ref8(_x3, _x4) {
+            getPrismicEdges = function _getPrismicEdges2(_x3, _x4) {
               return _getPrismicEdges.apply(this, arguments);
             };
 
@@ -366,15 +374,15 @@ function () {
   };
 }();
 
-exports.createResolvers = function (_ref12, _ref13) {
-  var actions = _ref12.actions,
-      cache = _ref12.cache,
-      createNodeId = _ref12.createNodeId,
-      createResolvers = _ref12.createResolvers,
-      store = _ref12.store,
-      reporter = _ref12.reporter;
-  var _ref13$sharpKeys = _ref13.sharpKeys,
-      sharpKeys = _ref13$sharpKeys === void 0 ? [/image|photo|picture/] : _ref13$sharpKeys;
+exports.createResolvers = function (_ref7, _ref8) {
+  var actions = _ref7.actions,
+      cache = _ref7.cache,
+      createNodeId = _ref7.createNodeId,
+      createResolvers = _ref7.createResolvers,
+      store = _ref7.store,
+      reporter = _ref7.reporter;
+  var _ref8$sharpKeys = _ref8.sharpKeys,
+      sharpKeys = _ref8$sharpKeys === void 0 ? [/image|photo|picture/] : _ref8$sharpKeys;
   var createNode = actions.createNode;
   var state = store.getState();
 

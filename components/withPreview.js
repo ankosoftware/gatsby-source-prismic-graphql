@@ -31,13 +31,13 @@ var withPreview = function withPreview(render, query) {
     return fragment && fragment.source ? fragment.source : '';
   }).join(' '));
   return function (data) {
-    return _react.default.createElement(_WrapPage.WrapPage, {
+    return /*#__PURE__*/_react.default.createElement(_WrapPage.WrapPage, {
       data: data,
       pageContext: {
         rootQuery: rootQuery
       },
       options: window.prismicGatsbyOptions || {}
-    }, _react.default.createElement(RenderComponent, null));
+    }, /*#__PURE__*/_react.default.createElement(RenderComponent, null));
   };
 };
 
