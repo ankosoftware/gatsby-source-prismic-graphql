@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/prismicio/gatsby-source-prismic-graphql/issues"
   },
-  "version": "3.6.11",
+  "version": "3.6.13",
   "main": "index.js",
   "files": [
     "*.js",
@@ -25,11 +25,15 @@
     "utils"
   ],
   "scripts": {
-
+    "build": "tsc --emitDeclarationOnly && babel src --out-dir ./ --extensions '.ts,.tsx'",
+    "clean": "rimraf {interfaces,types,components,utils,*.js}",
+    "prepare": "yarn clean && cross-env NODE_ENV=production yarn build",
+    "start": "babel src --out-dir ./ --extensions '.ts,.tsx' --watch",
+    "test": "yarn clean && yarn build"
   },
   "types": "./types/index.d.ts",
   "dependencies": {
-    "@prismicio/gatsby-source-graphql-universal": "^3.4.12",
+    "@prismicio/gatsby-source-graphql-universal": "^3.4.14",
     "apollo-boost": "^0.3.1",
     "apollo-link-context": "^1.0.17",
     "gatsby": "^2.24.11",
