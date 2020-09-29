@@ -265,9 +265,10 @@ exports.createPages = /*#__PURE__*/function () {
                         endCursor = _args.length > 2 && _args[2] !== undefined ? _args[2] : '';
                         documents = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
                         // Format page.type so that the graphql query doesn't complain.
-                        pageTypeUnderscored = page.type.split(' ').join('_');
-                        pageTypeFormatted = pageTypeUnderscored.charAt(0).toUpperCase() + pageTypeUnderscored.slice(1); // Prepare and execute query
-
+                        // pageTypeUnderscored = page.type.split(' ').join('_');
+                        // pageTypeFormatted = pageTypeUnderscored.charAt(0).toUpperCase() + pageTypeUnderscored.slice(1); // Prepare and execute query
+                        pageTypeUnderscored = page.type; //.toLowerCase().split(' ').join('_');
+                        pageTypeFormatted = pageTypeUnderscored;
                         documentType = "all".concat(pageTypeFormatted, "s");
                         sortType = "PRISMIC_Sort".concat(pageTypeFormatted, "y");
                         extraPageFields = page.extraPageFields || options.extraPageFields || '';
